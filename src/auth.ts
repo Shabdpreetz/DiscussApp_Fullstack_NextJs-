@@ -15,8 +15,9 @@ export const {handlers: {GET,POST}, auth, signIn, signOut} = NextAuth({   // it 
         GithubProvider({
             clientId:process.env.GITHUB_CLIENT_ID,
             clientSecret: process.env.GITHUB_CLIENT_SECRET
-        })
+        }),
     ],
+    secret: process.env.AUTH_SECRET,
     callbacks:{
         async session({user, session}){
             if(session && user){
